@@ -21,19 +21,19 @@ class _TaskListViewState extends State<TaskListView> {
         scrollDirection: Axis.vertical,
         itemCount: data.taskcount,
         itemBuilder: (ctx, i) {
-          var taskitem = widget.tasks[i];
+          var taskItem = widget.tasks[i];
           return TaskList(
-            taskTitle: taskitem.name,
-            isChecked: taskitem.isDone,
+            taskTitle: taskItem.name,
+            isChecked: taskItem.isDone,
             checkBoxCallBack: (bool? checkState) {
-              data.updateTask(taskitem);
+              data.updateTask(taskItem);
             },
             longpress: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: InkWell(
                     onTap: () {
-                      data.deleteTask(taskitem);
+                      data.deleteTask(taskItem);
                     },
                     child: Text(
                       'Delete',
